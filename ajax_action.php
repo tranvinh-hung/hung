@@ -12,11 +12,11 @@ if(isset ($_POST['hovaten']) ){
 
 }
 //delete
-if(isset ($_POST['id']) ){
-  $id = $_POST['hovaten'];
+if(isset ($_POST['iddl1']) ){
+  $id = $_POST['iddl1'];
   
-  $result = mysqli_query ($con,"DELETE FROM  tbl_khachhang WHERE khachhang_id='$id');
-  ");
+  $result = mysqli_query ($con,"DELETE FROM  tbl_khachhang WHERE khachhang_id= '$id' ");
+  
 
 }
 // if(isset($_POST['id'])){
@@ -29,13 +29,13 @@ if(isset($_POST['id'])){
  $id = $_POST['id'];
  $text = $_POST['text'];
  $column_name = $_POST['column_name'];
- $result = mysqli_query($con,"UPDATE tbl_khachang SET $column_name = '$text' where khachhang_id='$id'");
+ $result = mysqli_query($con,"UPDATE tbl_khachang SET $column_name = $text where khachhang_id = $id ");
 }
 
 //load dữ liệu
 $output = '';
 $sql_select = mysqli_query($con,"SELECT * FROM  tbl_khachhang ORDER BY khachhang_id DESC");
-$output .='
+$output.='
 <div class ="table table-responsive">
    <table class ="table table-bordered">
    <tr>
@@ -51,7 +51,7 @@ $output .='
 '; 
  if(mysqli_num_rows($sql_select)>0){
    while($rows = mysqli_fetch_array($sql_select)){
-     $output .='
+     $output.='
      <tr>
       <td class="hovaten" data-id1='.$rows['khachhang_id'].' contenteditable>'.$rows['hovaten'].'</td>
       <td >'.$rows['phone'].'</td>
@@ -67,7 +67,7 @@ $output .='
 
 
 else{
-  $output .='
+  $output.='
   <tr>
   <td colspan="5">dũ liệu chưa có</td>
   </tr>

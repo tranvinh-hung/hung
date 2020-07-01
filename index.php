@@ -67,7 +67,7 @@
          $.ajax({
                      url: "ajax_action.php",
                      method: "POST",
-                     data: {id:id},
+                     data: {iddl1:id},
                      success: function (data) {
                          alert('xoá thanh cong nha');
                         fetch_data();
@@ -76,6 +76,7 @@
      });
         //edit du lieu
      function edit_data(id,text,column_name) {
+        
         $.ajax({
                      url: "ajax_action.php",
                      method: "POST",
@@ -87,9 +88,10 @@
                  });
      }
      $(document).on('blur','.hovaten',function(){
-         var id = $(this).data('id1');
-         var text = $(this).text();
-         edit_data(id,text,"hovaten");
+  
+    var id = $(this).data('id1');
+    var text = $(this).text();
+    edit_data(id,text,"hovaten");
      });
 
    //insert du lieu
